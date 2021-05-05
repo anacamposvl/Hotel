@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <title>Hotels Viaja Mucho</title>
+        <link  rel="icon"   href="../ana_campos/imagenes/download.png" type="image/png" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+        crossorigin="anonymous">
+        <style>
+            *{margin: 0;
+            padding: 0;
+            box-sizing:  border-box;
+            }
+            body{ background-image: url(../ana_campos/imagenes/unnamed.jpg);}
+            body{font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            a{color: black}
+            .contenedor{
+                width: 90%;
+                max-width: 1000px;
+                margin: auto;
+                overflow: hidden;
+                }
+            h1{ font-size: 50px;
+                color: black;
+                
+            }
+            
+        
+            header::before{
+                content: "";
+                display: block;
+                margin-bottom: 80px;
+            }
+            nav{ width: 100%;
+                height: 80px;
+                background: #fff;
+                border-bottom: 1px solid transparent;
+                box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+                position: fixed;
+                top: 0;
+                z-index: 100;
+            }
+            .nav{
+                display: flex;
+                justify-content: space-between;
+                height: 80px;
+                width: 100%;
+                align-items: center;
+                padding: 0 40px;
+            }
+            .nav .logo{ height: 80px;
+            }
+            .nav .logo img{ 
+               
+                height: 100%;
+                vertical-align: top;
+            }
+            .enlaces-header{ font-weight: 300;
+            }
+            .nav .enlaces-header a{
+                color: black;
+                text-decoration: none;
+                margin-left: 20px;
+            }
+            .hamburguer{
+                width: 80px;
+                height: 80px;
+                display: none;
+                z-index: 100;
+                cursor : pointer;
+                transition: color 0.5s ease-in;
+            }
+            .contenedores{
+              width: 100%;
+              height: 600px;
+              width: 90%;
+              max-width: 1000px;
+              margin: auto;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;  
+              }
+            p{color: grey;}
+
+            .contenedores>img{
+                animation: ease-in animat 3s;
+
+            }
+            @keyframes animat{
+                0%{
+                    transform: scale(0);
+                }100%{
+                    transform: scale(1);
+                }
+            }
+            .textos-header{
+                margin: 0 0 0 30px;
+            }
+            .contenedores a{
+                margin: 28px 0 0 0;
+                width: 130px;
+                display: inline-block;
+            }
+            .inner{ overflow: hidden;
+             border-collapse: collapse;}
+            .inner img{transition: all 1.5s ease;}
+            .inner:hover img{ transform: scale(1.5);}
+            .content-results{
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .numbers{
+                width: 60%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+            }
+            .numbers .number{
+                width: 45%;
+                background: rgba(225, 255, 255, .2);
+                color: #fff;
+                border-radius: 10px;
+                padding: 40px 35px;
+                margin-bottom: 20px;
+            }
+            .numbers .number h4{
+                color: black;
+                font-size: 50px;
+                font-weight: 500;
+                margin-bottom: 20px;
+            }
+            .numbers .number p{
+            color: black;
+            font-weight: 300;
+            }
+            .results-text{
+            width: 37%;
+            }
+
+            h4{
+               color:  black;
+               font-size: 40px;
+           }
+            p{
+            color: white;
+            font-weight: 300;
+            margin: 20px 0;
+
+            }
+            .results-text>a{
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid white;
+            padding: 10px 0;
+            width: 120px;
+            text-align: center;
+            border-radius: 5px;
+            }
+            footer{
+            background: #f2f2f2;
+            padding: 60px 0;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: auto;
+            }
+            .partfooter{
+                width: 20%;
+                text-align: center;
+            }
+            
+            .partfooter h4{
+                color: #1d273b;
+                font-size: 20px;
+                font-weight: 400;
+                margin-bottom: 30px;
+            }
+            .partfooter a{
+                display: block;
+                text-decoration: none;
+                color: grey;
+                font-weight: 300;
+                transition: color .3s ease-in-out;
+                margin-bottom: 10px;
+            }
+
+            .partfooter a:hover{
+                color: #1fde82
+            }
+            .partfooter img{
+                width: 50%;
+                height: 50%;
+            }
+            .social-media i{
+                font-size: 20px;
+                display: inline-block;
+                color: #adb6c7;
+                border: 1px solid #adb6c7;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                line-height: 36px;
+                cursor: pointer;
+                margin-top: 20px;
+                text-align: center;
+                transition: all ease-in-out .3s;
+            }
+            .social-media i:hover{
+                color: white;
+                background-color: #1fde82;
+                border-color: #1fde82;
+            }
+            .cards{
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .cards .card{
+                background: #4d0686;
+                display: flex;
+                width: 46%;
+                height: 200px;
+                align-items: center;
+                justify-content: space-evenly;
+                border-radius: 5px;
+                box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+            }
+            .cards .card img{
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                display: block;
+            }
+            .cards .card > .contenido-texto-card{
+                width: 60%;
+                color: #fff;
+            }
+            .cards .card > .contenido-texto-card p{
+                font-weight: 300;
+                padding-top: 5px;
+            }
+            h2{ color: white;}
+            .about-services{
+                padding-bottom: 30px;
+            }
+            .servicio-cont{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .servicio-ind{
+                width: 28%;
+                text-align: center;
+            }
+            .servicio-ind img{width: 90%;}
+            .servicio-ind h3{margin: 10px 0;}
+            .servicio-ind p{ font-weight: 300;
+            text-align: justify;}
+
+            .principal{
+                width: 80%;
+                height: auto; overflow: hidden;
+                border: 1px solid;
+                margin: 10px auto;
+            }
+            .h2{
+                color: black;
+            }
+            .publicaciones{
+                width: 70%;
+                height: auto; overflow: hidden;
+                border: 1px solid red;
+                margin-top: 10px;
+            }
+            .post{
+                width: 99%;
+                height: auto; overflow: hidden;
+                padding: 7px;
+                background: #4d0686;
+                border-left-style: solid;
+                border-left-width: 5px;
+                border-left-color: white;
+                border-radius: 10px;
+                box-shadow:  0px 0px 15px #cccccc;
+                margin-bottom: 40px;
+            }
+            .enlaces-post{
+                text-decoration: none;
+            }
+            .publicaciones a .titulo-post{
+                color: red;
+                font-size: 22px;
+                font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+            }
+            .publicaciones a .titulo-post:hover{
+                text-decoration: underline;
+            }
+            .img-post{
+                width: 150px;
+                height: 100px;
+                float: left;
+                margin-top: 7px;
+                padding: 5px;
+                border: 1px solid #cccccc;
+                border-radius: 5px;
+            }
+
+            .publicaciones .datos-publicaciones{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color: blue;
+
+            }
+            .publicaciones .parrafo-post{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 5px;
+                color: #848484;
+                padding: 5px;
+                text-align: left;
+            }
+            .publicaciones .leer-mas{
+                background: blue;
+                color: #fff;
+                border: 0px;
+                padding: 5px;
+                text-decoration: none;
+                margin-top: 20px;
+                border-radius: 5px;
+            }
+            .publicaciones .num-comentarios{
+                background: red;
+                color: #fff;
+                border: 0px;
+                border-radius: 5px;
+                text-decoration: none;
+                padding: 5px;
+            }
+
+            h2{
+                text-align: center;
+            }
+            *{box-sizing: border-box;}
+            .row{
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                margin: 50px;
+            }
+            .col-25{
+                -ms-flex: 25%;
+                flex: 25%;
+            }
+            .col-50{
+                -ms-flex: 50%;
+                flex: 50%;
+            }
+            .col-75{
+                -ms-flex: 75%;
+                flex: 75%;
+            }
+            
+            .container{
+                background-color: white;
+                padding: 10px 18px 13px 18px;
+                border: 1px solid white;
+                border-radius: 3px;
+            }
+            .input[type=text]{
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+            label{
+                margin-bottom: 10px;
+                display: block;
+            }
+            .icon-container{
+                margin-bottom: 20px;
+                padding: 7px 0;
+                font-size: 24px;
+            }
+            .btn{
+                background-color: #4caf50;
+                color: white;
+                padding: 20px;
+                border: none;
+                width: 50%;
+                border-radius: 3px;
+                cursor: pointer;
+                font-size: 17px;
+            }
+            .btn:hover{
+                background-color: #1fde82;
+                
+            }
+            a{ 
+                color:black;
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid white;
+            padding: 10px 0;
+            width: 120px;
+            text-align: center;
+            border-radius: 5px;
+            }
+            
+            .price{
+                float: right;
+                color: black;
+            }
+            .form-register{
+                width: 400px;
+                background: #24303c;
+                padding: 30px;
+                margin: auto;
+                margin-top: 100px;
+                border-radius: 4px;
+                font-family: calibri;
+                color: white;
+                box-shadow: 7px 13px 37px #000;
+            }
+            .form-register h4{
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+            .controls{
+                width: 100%;
+                background: white;
+                padding: 10px;
+                border-radius: 4px;
+                margin-bottom: 16px;
+                border: 1px solid #1f53c5;
+                font-family: calibri;
+                font-size: 18px;
+            }
+            .form-register p{
+                height: 40px;
+                text-align: center;
+                font-size: 18px;
+            }
+            .form-register a{
+                color: white;
+                text-decoration: none;
+            }
+            .form-register a:hover{
+                color: white;
+                text-decoration: underline;
+            }
+            .form-register .botons {
+                width: 100%;
+                background: #1f53c5;
+                border: none;
+                padding: 12px;
+                color: white;
+                margin: 16px 0;
+                font-size: 16px;
+            }
+            
+            @media(max-width: 800px){
+                .row{
+                    flex-direction: column-reverse;
+
+                }
+                .col-25{
+                    margin-bottom: 20px;
+                }
+            }
+
+            @media screen and (max-width: 800px){
+                .titulo{ font-size: 54px;}
+            
+            .contenido-header{
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 720px;
+            }
+            .contenido-header>img{
+                width: 400px;
+            }
+            .textos-header{margin: 0;
+            }
+            .content-results{
+                flex-direction: column-reverse;
+            }
+            .results-text>a{
+                margin-bottom: 60px;
+            }
+            .numbers{ width: 100%;
+            }
+            .results-text{ width: 100%;}
+            .services{
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+            .box-skills{
+                margin:  0 0 40px 0;
+            }
+            .box-skills h4{
+                width: 500px;
+            }
+
+            .services>img{
+                width: 400px;
+            }
+            footer{
+                justify-content: space-between;
+            }
+            .partfooter{
+                width: 40%;
+                margin-bottom: 40px;
+            }
+            }
+            @media screen and (max-width: 600px){
+                .titulo{
+                    font-size: 35px;
+                }
+                h1{
+                    font-size: 40px;
+                }
+                .contenedor-header{
+                    height: 650px;
+                }
+                .nav{ padding: 0 10px;}
+                .contenido-header>img{
+                    width: 200px;
+                }
+            
+                .articulo{
+                    width: 95%;
+                }
+                .questions>img{
+                    width: 200px;
+                }
+                .numbers{
+                    width: 100%;
+                }
+                .numbers .number{
+                    width: 95%;
+                }
+                .results-text h4{
+                    font-size: 35px;
+                }
+                .services>img{
+                    width: 200px;
+                }
+                .box-skills h4{
+                    width: 100%;
+                }
+                .partfooter{
+                    width: 95%;
+
+                }
+            }
+            
+
+        </style>           
+    </head>
+<body>
+    <header>
+        <nav>
+            <section class="contenedor nav">
+                <div class="logo">
+                    <img src="../ana_campos/imagenes/avion.png"
+                   width="80px">
+                   <img src="../ana_campos/imagenes/este si.png"
+                   width="300px"
+                   height="90"></img>
+                </div>
+                    
+                
+                    <div class="enlaces-header">
+                        <a href="#">Inicio</a>
+                        <a href="#">Servicios</a>
+                        <a href="#">Descuentos</a>
+                        <a href="#">Hoteles</a>
+                        <a href="#">Contactanos</a>
+                    </div>
+                
+                <div class="hamburguer">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+        </nav>
+    
+        <div class="contenedores">
+            <section class="contenido-header">
+                <div class="textos-header">
+                    <h1>Reserva tu hotel a donde quieras con los mejores descuentos</h1>
+                    <p>A donde quieres viajar?</p>
+                    <a href="#"> lear more <i class="fas fa-search"></i>></a>
+                    </div>
+            </section>
+            <img src="../ana_campos/imagenes/imagen 1 de la pagina.jpg" alt=""
+            width="650">
+        </section>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+
+    <section class="about-services">
+        <div class="contenedor">
+            <h2 class="titulo"> Nuestras promos</h2>
+            <div class="servicio-cont">
+                <div class="servicio-ind">
+                    <img src="../ana_campos/imagenes/margarita.jpg" alt="">
+                    <h3> Isla de margarita</h3>
+                    <p>Hotel 5 estrellas con vista al mar,desayuno incluido.</p>
+                    <p>1 noche por $300</p>
+                    <a href="#">Ingrese aqui</a>
+                </div>
+                <div class="servicio-ind">
+                    <img src="../ana_campos/imagenes/alojamiento-en-bariloche.jpg" alt="">
+                    <h3> Bariloche</h3>
+                    <p>Hotel 2 estrellas con desayuno incluido</p>
+                    <p>1 noche por $200</p>
+                    <a href="#">Ingrese aqui</a>
+                </div>
+                <div class="servicio-ind">
+                    <img src="../ana_campos/imagenes/rio de janeiro.jpg" alt="">
+                    <h3>Rio de janeiro </h3>
+                    <p>Hotel 3 estrellas con vista al mar, desayuno incluido.</p>
+                    <p>1 noche por $500</p>
+                    <a href="#">Ingrese aqui</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="results">
+        <h3>Descuentos</h3>
+        <div class="contenedor content-results">
+            <section class="numbers">
+                <div class="number">
+                <h4>PROMO 1</h4>
+                <p>60% de descuento</p>
+                </div>
+                <div class="number">
+                <h4>PROMO 2</h4>
+                <p>15% de descuento</p>
+                </div>
+                <div class="number">
+                <h4>PROMO 3</h4>
+                <p>10% de descuento</p>
+                </div>
+                <div class="number">
+                <h4>PROMO 4</h4>
+                <p>5% de descuento</p>
+                </div>
+                <div class="number">
+                <h4>PROMO 5</h4>
+                <p>25% de descuento</p>
+                </div>
+                <div class="number">
+                <h4>PROMO 6</h4>
+                <p>40% de descuento</p>
+                </div>
+
+            </section>
+            <section class="results-text">
+                <h4>Accede a nuestras mejores promos </h4>
+                <p>Haz clic en una promo y presiona continuar  </p>
+                <a href="#">Continuar</a>
+            </section>
+        </div>
+    </section>
+    <div class="clientes contenedor">
+        <h2 class="titulo">Que dicen nuestros clientes</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="../ana_campos/imagenes/mujer 2.jpg" alt="">
+                <div class="contenido-texto-card">
+                    <h4>Ana Maria</h4>
+                    <p> Muy buenos descuentos!! Me encanta!!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clientes contenedor">
+        <h2 class="titulo">Ella quedo muy feliz</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="../ana_campos/imagenes/m ujer 3.jpg" alt="">
+                <div class="contenido-texto-card">
+                    <h4>Valentina</h4>
+                    <p> VIajaria toda mi vida con esta pagina</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+    <br>
+    <br>
+    <section id="principal">
+        <section id="publicaciones">
+            <article class="post">
+
+                <a href="" class="enlace-post">
+                    <h2 class="titulo-post">Lo mas buscado </h2>
+                </a>
+                <img src="../ana_campos/imagenes/rio de janeiro.jpg" class="img-post">
+                <p>
+                    <strong>Por:</strong> <span class="datos-publicaciones">Valentina</span>
+                    &nbsp; &nbsp;
+                    <strong> Por: </strong> <span class="datos-publicaciones">Lunes 20 de julio de 2020</span>
+                </p>
+                <p class="parrafo-post">
+                    ¿Te preguntas cuáles son los destinos más buscados en verano?
+                     La respuesta está en nuestro top ventas y te sorprenderá. 
+                     Puede que no encuentres destinos más dispares incluso si los buscas a propósito,
+                      pero lo cierto es que los viajeros mandan y estos son los viajes de verano que más éxito tienen.
+                </p>
+                <a href="" class="leer-mas">Leer mas ...</a>
+                <span class="num-comentarios"></span>
+                </p>
+            </article>
+            </article>
+        </section>
+    </section>
+    </div>
+    <section id="principal">
+        <section id="publicaciones">
+            <article class="post">
+
+                <a href="" class="enlace-post">
+                    <h2 class="titulo-post">Nieve </h2>
+                </a>
+                <img src="../ana_campos/imagenes/alojamiento-en-bariloche.jpg" class="img-post">
+                <p>
+                    <strong>Por:</strong> <span class="datos-publicaciones">Antonio</span>
+                    &nbsp; &nbsp;
+                    <strong> Fecha: </strong> <span class="datos-publicaciones">Lunes 7 de noviembre de 2020</span>
+                </p>
+                <p class="parrafo-post">
+                    Seguramente esta es una pregunta que se hacen muchos viajeros antes de visitar la ciudad de San Carlos de Bariloche o alguna otra ciudad de la Patagonia Argentina.
+En esta nota te presentamos un resumen con toda la información necesaria para estar listo antes de viajar. En algunos casos esa información estará desarrollada en algún sector de nuestro website Bariloche.Org, por lo que pondremos a tu disposición el link correspondiente. También está disponible una herramienta de búsqueda de servicios en Bariloche, para que consultes con el prestador que más quieras y sin intermediarios.
+                </p>
+                <a href="" class="leer-mas">Leer mas ...</a>
+                </p>
+            </article>
+            </article>
+        </section>
+    </section>
+    </div>
+    <section id="principal">
+        <section id="publicaciones">
+            <article class="post">
+
+                <a href="" class="enlace-post">
+                    <h2 class="titulo-post"> Islas </h2>
+                </a>
+                <img src="../ana_campos/imagenes/margarita.jpg" class="img-post">
+                <p>
+                    <strong>Por:</strong> <span class="datos-publicaciones">Crispin</span>
+                    &nbsp; &nbsp;
+                    <strong> Fecha: </strong> <span class="datos-publicaciones">Martes 4 de junio de 2019</span>
+                </p>
+                <p class="parrafo-post">
+                    El chiste se torna agrio aun dicho con el gracioso acento cantado y que arrastra las erres que tienen los orientales en Venezuela. "De Margarita solo queda el mar, el garita también se fue", bromea José Bermúdez, taxista de hace más de 20 años en la paradisíaca isla venezolana, que hasta hace unos años era uno de los principales destinos turísticos del Caribe. Es miércoles, uno de los días que el aeropuerto internacional tiene más movimiento: siete vuelos en todo el día. 
+                </p>
+                <a href="" class="leer-mas">Leer mas ...</a>
+                </p>
+            </article>
+            </article>
+        </section>
+    </section>
+    </div>
+    <h2>Registrate para mas promos</h2>
+    <section class="form-register">
+        <h4> Registro</h4>
+        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre aqui">
+        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su apellido">
+        <input class="controls" type="email"name="correo" id="correo" placeholder="Ingrese su correo">
+        <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su contrasena">
+        <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
+        <input class="botons" type="submit" value="Registrar">
+        <p><a href="#">Ya tengo cuenta?</a></p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <h2> Checkout </h2>
+    <div class="row">
+        <div class="col-75">
+            <div class="container">
+                <form action="/action_jkwhwd">
+                    <div class="row">
+                        <div class="col-50">
+                            <h3>Acceder</h3>
+                            <label for="fname"> <i class="fa fa-user"></i>Nombre Completo</label>
+                            <input type="text" id="fname" name="firstname" placeholder="John M. Done">
+                            <label for="email"> <i class="fa fa-envelope"></i>Email</label>
+                            <input type="text" id="email" name="email" placeholder="John@example.com">
+                            <label for="adr"> <i class="fa fa-address-caed-o"></i>Direccion</label>
+                            <input type="text" id="adr" name="address" placeholder="Av. 5 de julio">
+                            <label for="city"> <i class="fa fa-institution"></i>ciudad</label>
+                            <input type="text" id="city" name="city" placeholder="John M. Done">
+
+
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="estado">Provincia</label>
+                                    <input type="text" id="codigo postal" name="codigo postal" placeholder="Mendoza">
+                                </div>
+                                </div>
+                                <div class="col-50">
+                                    <label for="estado">Codigo postal</label>
+                                    <input type="text" id="codigo postal" name="codigo postal" placeholder="1881">
+                                </div>
+                                </div>
+                                    
+                                
+                            
+                        
+                        <div class="col-50">
+                            <h3>Metodos de pago</h3>
+                            <label for="fname"> Aceptamos tarjetas</label>
+                            <div class="icon-container">
+                                <i class="fa fa-cc-visa" style="color: navy;"></i>
+                                <i class="fa fa-cc-amex" style="color: blue;"></i>
+                                <i class="fa fa-cc-mastercard" style="color: red;"></i>
+                                <i class="fa fa-cc-discover" style="color: orange;"></i>
+                            </div>
+                            <label for="cname"> Nombre de la tarjeta</label>
+                            <input type="text" id="cname" name="cardnumber" placeholder="JOhbwss">
+
+                            <label for="ccnum"> CBU</label>
+                            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-1111-1111-1111">
+
+                            <label for="expmonth"> Expira el mes</label>
+                            <input type="text" id="expmonth" name="expmonth" placeholder="september">
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="expyear">Expira el ano</label>
+                                    <input type="text" id="expyear" name="cvv" placeholder="2020">
+                                
+                                <div class="col-50">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="532">
+                                </div>
+                            </div>
+                        </div>
+                        <label>
+                            <input type="checkbox" checked="checked" name="sameadr"> Acepto los terminos y condiciones
+                        </label>
+                        <input type="submit" value="Reservar" class="btn">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="col-25">
+        <div class="container">
+            <h4> Carrito <span class="price" style="color: black"><i class="fa fa-shopping-cart"></i><b>4</b></span>
+                <p><a href="#">15% de descuento</a><span class="price">$500</span></p>
+                <p><a href="#">Hotels sleep inn</a><span class="price">$1500</span></p>
+                <p><a href="#">Desayuno</a><span class="price">$500</span></p>
+                <p><a href="#">Merienda</a><span class="price">$1500</span></p>
+                <hr>
+                <p>Total <span class="price" style="color: black"><b>$4000</b></span></p>
+        </div>
+    </div>
+</div>
+    <footer>
+        <div class="partfooter">
+            <img src="../ana_campos/imagenes/avion.png"
+            width="50px"
+            height="50px">
+        </div>
+        <div class="partfooter">
+            <h4>Contactanos
+                +54-8347-74346
+                +56-4395-87463 </h4>
+        </div>
+        <div class="partfooter">
+            <h4> Direccion 
+                Buenos Aires, Argentina
+                Jose Bonifacio 
+                Piso 3 Departamento C
+            </h4>
+        </div>
+        <div class="partfooter">
+            <h4> Nuestras redes sociales</h4>
+            <div class="social-media">
+                <i class="fab fa-facebook"></i>
+                <h4>Hotels viaja Mucho</h4>
+                <br>
+                <i class="fab fa-instagram"></i>
+                <h4>@viajamucho</h4>
+                <br>
+                <i class="fab fa-twitter"></i>
+                <h4>@viajamucho1</h4>
+                <br>
+                <i class="fab fa-youtube"></i>
+                <h4>Viaja Mucho</h4>
+            </div>
+        </div>  
+    </footer>
+
+
+
+    <script src="https://kit.fontawesome.com/55921164be.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
